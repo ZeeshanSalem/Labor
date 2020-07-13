@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "1045972568110",
+    "firebase_url": "https://mazdoor-85465.firebaseio.com",
+    "project_id": "mazdoor-85465",
+    "storage_bucket": "mazdoor-85465.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045972568110:android:cb68ffb15ecd576e7c77bf",
+        "android_client_info": {
+          "package_name": "com.example.client_mazdoor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045972568110-eq9ep84cg4q8j4k4ldp02gf11sefubug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.client_mazdoor",
+            "certificate_hash": "a2e3ed1cb6ef4fd55bd260065d94b804dcb8e558"
+          }
+        },
+        {
+          "client_id": "1045972568110-de8v3crgssd8muotudir7ekvn3j2rq52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC46d4sOk-6zmjmlXBrwVX6pmCzcryMmv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045972568110-de8v3crgssd8muotudir7ekvn3j2rq52.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045972568110-9d43o2oqt9innf60phov9fnc742og4d2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.clientMazdoor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045972568110:android:95c75ee73629804f7c77bf",
+        "android_client_info": {
+          "package_name": "com.example.labors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045972568110-rcmu9n40fdqg9v0quss43rr0ia8h0vk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.labors",
+            "certificate_hash": "a2e3ed1cb6ef4fd55bd260065d94b804dcb8e558"
+          }
+        },
+        {
+          "client_id": "1045972568110-de8v3crgssd8muotudir7ekvn3j2rq52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC46d4sOk-6zmjmlXBrwVX6pmCzcryMmv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045972568110-de8v3crgssd8muotudir7ekvn3j2rq52.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045972568110-9d43o2oqt9innf60phov9fnc742og4d2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.clientMazdoor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

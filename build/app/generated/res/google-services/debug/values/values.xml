@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1045972568110-de8v3crgssd8muotudir7ekvn3j2rq52.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://mazdoor-85465.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1045972568110</string>
+    <string name="google_api_key" translatable="false">AIzaSyC46d4sOk-6zmjmlXBrwVX6pmCzcryMmv8</string>
+    <string name="google_app_id" translatable="false">1:1045972568110:android:95c75ee73629804f7c77bf</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC46d4sOk-6zmjmlXBrwVX6pmCzcryMmv8</string>
+    <string name="google_storage_bucket" translatable="false">mazdoor-85465.appspot.com</string>
+    <string name="project_id" translatable="false">mazdoor-85465</string>
+</resources>
