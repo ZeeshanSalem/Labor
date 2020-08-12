@@ -1,5 +1,3 @@
-
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 String userName;
@@ -12,7 +10,6 @@ String userId;
 String userImage;
 
 String userType;
-
 
 bool isLocationData = false;
 
@@ -30,7 +27,7 @@ String laborPasswor;
 String labortype;
 String laborGender;
 String laborImage;
+String laborToken;
 
 String workType;
 String workPricePertype;
-

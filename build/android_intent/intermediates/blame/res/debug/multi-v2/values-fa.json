@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\src\\labors\\build\\android_intent\\intermediates\\res\\merged\\debug\\values-fa\\values-fa.xml",
+            "outputFile": "/Users/zeeshan_saleem/Flutter_Projects/Labor/build/android_intent/intermediates/res/merged/debug/values-fa/values-fa.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\0a88e15c27fe8f45486868f55d363bed\\core-1.1.0\\res\\values-fa\\values-fa.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/0a88e15c27fe8f45486868f55d363bed/core-1.1.0/res/values-fa/values-fa.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\src\\labors\\build\\android_intent\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fa\\values-fa.xml",
+            "outputFile": "/Users/zeeshan_saleem/Flutter_Projects/Labor/build/android_intent/intermediates/incremental/mergeDebugResources/merged.dir/values-fa/values-fa.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\0a88e15c27fe8f45486868f55d363bed\\core-1.1.0\\res\\values-fa\\values-fa.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/0a88e15c27fe8f45486868f55d363bed/core-1.1.0/res/values-fa/values-fa.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

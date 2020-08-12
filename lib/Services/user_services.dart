@@ -6,32 +6,36 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Gvariable.dart' as global;
 
-class UserServices{
+class UserServices {
   SharedPreferences sharedUserData;
 
   //CurrentUser
   FirebaseUser user;
 
-  Future<String> currentUser() async{
+  Future<String> currentUser() async {
     user = await FirebaseAuth.instance.currentUser();
-    return user != null? user.uid : null;
+    return user != null ? user.uid : null;
   }
 
-  addPhoneNumbertoFirestoreCollection(BuildContext context) async{
+  addPhoneNumbertoFirestoreCollection(BuildContext context) async {
     sharedUserData = await SharedPreferences.getInstance();
     String currentUserId = sharedUserData.get("currentUserId");
 
-    Firestore.instance.collection("Labors_Info").document(currentUserId).setData({
-      "laborPhoneNumber" : global.laborPhoneNumber,
-      "laborId" : global.laborId,
-      "laborName" : global.laborName,
-      "laborImage" : global.laborImage,
-      "laborAge" : global.laborAge,
-      "laborType" : global.labortype,
-      
-    },
-    merge: true,
-    ).then((val){
+    Firestore.instance
+        .collection("Labors_Info")
+        .document(currentUserId)
+        .setData(
+      {
+        "laborPhoneNumber": global.laborPhoneNumber,
+        "laborId": global.laborId,
+        "laborName": global.laborName,
+        "laborImage": global.laborImage,
+        "laborAge": global.laborAge,
+        "laborType": global.labortype,
+        "laborToken": global.laborToken,
+      },
+      merge: true,
+    ).then((val) {
       print("Created on database");
       //Navigator.of(context).pushReplacementNamed('/home');
       Navigator.of(context).pushReplacementNamed('/UserLocation');
@@ -39,15 +43,19 @@ class UserServices{
   }
 
   //add User location to Firestore
-  Future userLocationStore() async{
+  Future userLocationStore() async {
     sharedUserData = await SharedPreferences.getInstance();
     String currentUserId = await sharedUserData.get("currentUserId");
-    Firestore.instance.collection("Labors_Info").document(currentUserId).setData({
-      "laborAddress" : global.laborAddress,
-      "laborLatitude" : global.laborLatitude,
-      "laborLongitude" : global.laborLongitude,
-    },
-    merge: true,
+    Firestore.instance
+        .collection("Labors_Info")
+        .document(currentUserId)
+        .setData(
+      {
+        "laborAddress": global.laborAddress,
+        "laborLatitude": global.laborLatitude,
+        "laborLongitude": global.laborLongitude,
+      },
+      merge: true,
     );
   }
 
@@ -64,31 +72,31 @@ class UserServices{
   // }
 
   //Update Profile PIC
-  updateProfilePic(picUrl) async{
+  updateProfilePic(picUrl) async {
     var userInfo = new UserUpdateInfo();
     userInfo.photoUrl = picUrl;
-    var auth = await FirebaseAuth.instance.currentUser(); 
-    auth.updateProfile(userInfo).then((value){
+    var auth = await FirebaseAuth.instance.currentUser();
+    auth.updateProfile(userInfo).then((value) {
       FirebaseAuth.instance.currentUser().then((user) {
-        Firestore.instance.collection("Users_Info")
-        .where('uid', isEqualTo: user.uid)
-        .getDocuments()
-        .then((doc) {
-          Firestore.instance.document("/Users_Info/${doc.documents[0].documentID}")
-          .updateData({'userImage' : picUrl}).then((value) {
+        Firestore.instance
+            .collection("Users_Info")
+            .where('uid', isEqualTo: user.uid)
+            .getDocuments()
+            .then((doc) {
+          Firestore.instance
+              .document("/Users_Info/${doc.documents[0].documentID}")
+              .updateData({'userImage': picUrl}).then((value) {
             print("Updated pic");
-          }).catchError((onError){
+          }).catchError((onError) {
             print("$onError");
           });
-        })
-        .catchError((e){
+        }).catchError((e) {
           print("$e");
         });
-      })
-      .catchError((onError){
+      }).catchError((onError) {
         print("$onError");
       });
-    }).catchError((onError){
+    }).catchError((onError) {
       print("$onError");
     });
   }
@@ -112,5 +120,4 @@ class UserServices{
 
   // facebook authentication
   final FirebaseAuth auth = FirebaseAuth.instance;
-  
 }

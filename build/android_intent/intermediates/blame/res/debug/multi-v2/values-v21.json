@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\src\\labors\\build\\android_intent\\intermediates\\res\\merged\\debug\\values-v21\\values-v21.xml",
+            "outputFile": "/Users/zeeshan_saleem/Flutter_Projects/Labor/build/android_intent/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\0a88e15c27fe8f45486868f55d363bed\\core-1.1.0\\res\\values-v21\\values-v21.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/0a88e15c27fe8f45486868f55d363bed/core-1.1.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -17,10 +17,10 @@
             ]
         },
         {
-            "outputFile": "C:\\src\\labors\\build\\android_intent\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "/Users/zeeshan_saleem/Flutter_Projects/Labor/build/android_intent/intermediates/res/merged/debug/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\0a88e15c27fe8f45486868f55d363bed\\core-1.1.0\\res\\values-v21\\values-v21.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/0a88e15c27fe8f45486868f55d363bed/core-1.1.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

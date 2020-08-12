@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\src\\labors\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
+            "outputFile": "/Users/zeeshan_saleem/Flutter_Projects/Labor/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-lv/values-lv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\6f5a09b4953ee13b34e15b87364445ea\\core-1.2.0\\res\\values-lv\\values-lv.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/6f5a09b4953ee13b34e15b87364445ea/core-1.2.0/res/values-lv/values-lv.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\3e048612d3799077421484434852ba6c\\play-services-base-17.2.1\\res\\values-lv\\values.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/3e048612d3799077421484434852ba6c/play-services-base-17.2.1/res/values-lv/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Ibrahim Khattak\\.gradle\\caches\\transforms-2\\files-2.1\\36828c6822fa4b911634418b01f7010e\\jetified-play-services-basement-17.2.1\\res\\values-lv\\values.xml",
+                    "source": "/Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/431ad19839e963779f145a9b073b2262/jetified-play-services-basement-17.2.1/res/values-lv/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

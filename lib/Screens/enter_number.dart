@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:labors/Services/user_id.dart';
 import 'package:labors/Shared_Widget/header_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,62 +13,67 @@ class EnterNumber extends StatefulWidget {
 }
 
 class _EnterNumberState extends State<EnterNumber> {
-  FirebaseAuth _auth =  FirebaseAuth.instance;
-  final formKey =  GlobalKey<FormState>();
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
   String phoneNo;
   String smsCode;
   String verificationId;
   bool codeSent;
+
+  pushMessagingToken() async {
+    String currentUserId = await UserID().functionUserId();
+    print(currentUserId);
+
+    _firebaseMessaging.getToken().then((token) => {
+          print("your token is $token"),
+          setState(() {
+            global.laborToken = token;
+          })
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: header(context, isAppTitle: true),
       body: Form(
-       
         child: Column(
-          
           children: <Widget>[
-           SizedBox( height: 30),
-            
-             Text.rich(
-                TextSpan(
-                  text: "Enter Your Mobile Number",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.5,
-                  )
-                )
-              ),
-            
-            SizedBox( height: 5.0 ),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0,left: 20.0),
-                child: Text("Enter your mobile number,to create account or login",
+            SizedBox(height: 30),
+            Text.rich(TextSpan(
+                text: "Enter Your Mobile Number",
                 style: TextStyle(
-                color: Colors.black87,
-                fontSize: 15.0,
-              ),),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25.5,
+                ))),
+            SizedBox(height: 5.0),
+            Padding(
+              padding: EdgeInsets.only(top: 5.0, left: 20.0),
+              child: Text(
+                "Enter your mobile number,to create account or login",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 15.0,
+                ),
+              ),
             ),
-
-             Padding(
-              padding: EdgeInsets.only( top: 25.0,left: 15.0, right: 20.0),
-                child: TextFormField(
-                  
-                  keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(
-                     hintText: "+92 3xx xxxxxxx",
-                    icon: Icon(Icons.phone),
-                    ),
-                  onChanged: (value) {
-                    if(!mounted) return;
+            Padding(
+              padding: EdgeInsets.only(top: 25.0, left: 15.0, right: 20.0),
+              child: TextFormField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  hintText: "+92 3xx xxxxxxx",
+                  icon: Icon(Icons.phone),
+                ),
+                onChanged: (value) {
+                  if (!mounted) return;
                   setState(() {
                     this.phoneNo = value;
                   });
-                   },
+                },
               ),
             ),
-
             Container(
               margin: EdgeInsets.only(top: 10),
               padding: EdgeInsets.all(10.5),
@@ -78,24 +85,24 @@ class _EnterNumberState extends State<EnterNumber> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),
-                  child: Text("Continue",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.5,
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.bold,
-                  ),),
+                  child: Text(
+                    "Continue",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.5,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   onPressed: () {
                     verifyPhone();
-                    
                   },
                 ),
               ),
             )
-
           ],
         ),
-        ),
+      ),
     );
   }
 
@@ -118,7 +125,7 @@ class _EnterNumberState extends State<EnterNumber> {
               smsOTPSent, // WHEN CODE SENT THEN WE OPEN DIALOG TO ENTER OTP.
           timeout: const Duration(seconds: 20),
           verificationCompleted: (AuthCredential phoneAuthCredential) {
-            print("Verified : " +phoneAuthCredential.toString());
+            print("Verified : " + phoneAuthCredential.toString());
             signIn(phoneAuthCredential);
             //RNavigator.push(context,MaterialPageRoute(builder: (context) => HomeScreen()),);
           },
@@ -162,8 +169,9 @@ class _EnterNumberState extends State<EnterNumber> {
                   _auth.currentUser().then((user) {
                     if (user != null) {
                       Navigator.of(context).pop();
-                       //Navigator.of(context).pushReplacementNamed('/home');
-                      Navigator.of(context).pushReplacementNamed('/UserLocation');
+                      //Navigator.of(context).pushReplacementNamed('/home');
+                      Navigator.of(context)
+                          .pushReplacementNamed('/UserLocation');
                     } else {
                       signInWithOTP(smsCode, verificationId);
                       //signIn();
@@ -179,14 +187,13 @@ class _EnterNumberState extends State<EnterNumber> {
   signIn(AuthCredential credential) async {
     global.sharedUserData = await SharedPreferences.getInstance();
     try {
-      
       AuthResult authResult = await _auth.signInWithCredential(credential);
       final FirebaseUser user = authResult.user;
       final FirebaseUser currentUser = await _auth.currentUser();
       assert(user.uid == currentUser.uid);
-      print(" Cureent user $currentUser" );
+      print(" Cureent user $currentUser");
       print("I am here");
-      if(authResult.additionalUserInfo.isNewUser){
+      if (authResult.additionalUserInfo.isNewUser) {
         if (!mounted) return;
         setState(() {
           global.laborId = user.uid;
@@ -197,15 +204,15 @@ class _EnterNumberState extends State<EnterNumber> {
         //   "userPhone": userPhoneNumber,
         //   "userId": userId,
         // });
-        
+
         //UserServices().addPhoneNumbertoFirestoreCollection(context);
         print("Created");
         Navigator.of(context).pushReplacementNamed('/Registration');
-      } else{
-      print("Out");
-      Navigator.of(context).pop();
-      //Navigator.of(context).pushReplacementNamed('/home');
-      Navigator.of(context).pushReplacementNamed('/UserLocation');
+      } else {
+        print("Out");
+        Navigator.of(context).pop();
+        //Navigator.of(context).pushReplacementNamed('/home');
+        Navigator.of(context).pushReplacementNamed('/UserLocation');
       }
     } catch (e) {
       print(e);
@@ -213,12 +220,11 @@ class _EnterNumberState extends State<EnterNumber> {
     }
   }
 
-
 // old otp
   signInWithOTP(smsCode, verId) {
     AuthCredential authCreds = PhoneAuthProvider.getCredential(
         verificationId: verId, smsCode: smsCode);
-        print("otp");
+    print("otp");
     signIn(authCreds);
   }
 }
