@@ -31,6 +31,9 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -74,6 +77,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <!--
              Don't delete the meta-data below.
@@ -107,6 +115,9 @@
                 android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
+                android:name="com.google.firebase.components:io.flutter.plugins.firebasemessaging.FlutterFirebaseAppRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
                 android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseAppRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
@@ -118,6 +129,14 @@
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+        <service android:name="io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
         </service>
 
         <activity
@@ -130,6 +149,26 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             but set to not exported to explicitly avoid allowing another app to call it.
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="false" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

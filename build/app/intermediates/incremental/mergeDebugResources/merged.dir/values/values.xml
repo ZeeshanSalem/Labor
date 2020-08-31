@@ -103,6 +103,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="default_web_client_id" translatable="false">1045972568110-de8v3crgssd8muotudir7ekvn3j2rq52.apps.googleusercontent.com</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="firebase_database_url" translatable="false">https://mazdoor-85465.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">1045972568110</string>
     <string name="google_api_key" translatable="false">AIzaSyC46d4sOk-6zmjmlXBrwVX6pmCzcryMmv8</string>

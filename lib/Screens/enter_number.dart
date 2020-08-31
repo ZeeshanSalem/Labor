@@ -95,7 +95,7 @@ class _EnterNumberState extends State<EnterNumber> {
                     ),
                   ),
                   onPressed: () {
-                    verifyPhone();
+                    verifyPhone().then((value) => pushMessagingToken());
                   },
                 ),
               ),

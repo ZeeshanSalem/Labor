@@ -12,7 +12,6 @@ class CustomMap extends StatefulWidget {
 }
 
 class _CustomMapState extends State<CustomMap> {
-  
   // For getting device Location
   Geolocator geolocator;
   Position positions;
@@ -30,17 +29,23 @@ class _CustomMapState extends State<CustomMap> {
 
   // method get position
   void _getlocation() {
-    geolocator = Geolocator() ..forceAndroidLocationManager;
-    LocationOptions locationOptions = LocationOptions(accuracy: LocationAccuracy.high, distanceFilter: 10);
-    _positioStream =  geolocator.getPositionStream(locationOptions).listen((Position position) async{
-      placemark = await geolocator.placemarkFromCoordinates(position.latitude, position.longitude); 
+    geolocator = Geolocator()..forceAndroidLocationManager;
+    LocationOptions locationOptions =
+        LocationOptions(accuracy: LocationAccuracy.high, distanceFilter: 10);
+    _positioStream = geolocator
+        .getPositionStream(locationOptions)
+        .listen((Position position) async {
+      placemark = await geolocator.placemarkFromCoordinates(
+          position.latitude, position.longitude);
       setState(() {
         positions = position;
         initialPosition = LatLng(positions.latitude, positions.longitude);
-        
-        presentAddress = placemark[0].name.toString() + ", " +
-         placemark[0].locality.toString() +
-         ", Postal Code:" + placemark[0].postalCode.toString();
+
+        presentAddress = placemark[0].name.toString() +
+            ", " +
+            placemark[0].locality.toString() +
+            ", Postal Code:" +
+            placemark[0].postalCode.toString();
         global.laborAddress = presentAddress.toString();
         global.laborLatitude = position.latitude;
         global.laborLongitude = position.longitude;
@@ -50,13 +55,13 @@ class _CustomMapState extends State<CustomMap> {
     //UserServices().userLocationStore();
   }
 
-  void onCreated(GoogleMapController controller){
+  void onCreated(GoogleMapController controller) {
     setState(() {
       mapController = controller;
     });
   }
 
-  void onCameraMove(CameraPosition position){
+  void onCameraMove(CameraPosition position) {
     setState(() {
       lastPosition = position.target;
     });
@@ -64,11 +69,10 @@ class _CustomMapState extends State<CustomMap> {
 
   // Add Marker
 
-  populateClient()  {
-    Firestore.instance.collection("Users_Info").getDocuments()
-    .then((docs) {
-      if(docs.documents.isNotEmpty){
-        for(int i =0; i < docs.documents.length; i++){
+  populateClient() {
+    Firestore.instance.collection("Users_Info").getDocuments().then((docs) {
+      if (docs.documents.isNotEmpty) {
+        for (int i = 0; i < docs.documents.length; i++) {
           initMarker(docs.documents[i].data, docs.documents[i].documentID);
         }
       } else {
@@ -76,8 +80,7 @@ class _CustomMapState extends State<CustomMap> {
       }
     });
     print("BBBBBBB");
-    
- }
+  }
 
 //  populateLabor(){
 //     return StreamBuilder (
@@ -88,29 +91,28 @@ class _CustomMapState extends State<CustomMap> {
 //         }else {
 //            for(int i = 0; i < snapshot.data.documents.length; i++){
 //             DocumentSnapshot labors = snapshot.data.document[i];
-             
+
 //              initMarker(labors.data[i],labors.documentID[i]);
 //           }
 //         }
 //       });
 //   }
 
-  void initMarker(request, requestId){
+  void initMarker(request, requestId) {
     var markerIdVal = requestId;
     final MarkerId markerId = MarkerId(markerIdVal);
     //Creating a new Marker
     final Marker marker = Marker(
-      markerId: markerId,
-      position: LatLng(
-        request["userLatitude"], request["userLongitude"]),
-      infoWindow: InfoWindow( title : request["userName"],
-      snippet: request["userAddress"].toString(),
-      )
-        );
-        setState(() {
-          markers[markerId] = marker;
-          print(markerId);
-        });
+        markerId: markerId,
+        position: LatLng(request["userLatitude"], request["userLongitude"]),
+        infoWindow: InfoWindow(
+          title: request["userName"],
+          snippet: request["userAddress"].toString(),
+        ));
+    setState(() {
+      markers[markerId] = marker;
+      print(markerId);
+    });
   }
 
   @override
@@ -123,7 +125,7 @@ class _CustomMapState extends State<CustomMap> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _positioStream.cancel();
     super.dispose();
   }
@@ -132,33 +134,46 @@ class _CustomMapState extends State<CustomMap> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Container(
-          child: initialPosition == null? Center(
-            heightFactor: 100.0,
-            widthFactor: 100.0,
-            child: CircularProgressIndicator(
-              value: 50.0,
-              backgroundColor: Colors.white,//Theme.of(context).primaryColor,
-              
+        // Container(
+        //   child: initialPosition == null? Center(
+        //     heightFactor: 100.0,
+        //     widthFactor: 100.0,
+        //     child: CircularProgressIndicator(
+        //       value: 50.0,
+        //       backgroundColor: Colors.white,//Theme.of(context).primaryColor,
+
+        //     ),
+        //   ): GoogleMap(
+        //     onMapCreated: onCreated,
+        //     initialCameraPosition: CameraPosition(
+        //       target: LatLng(positions.latitude, positions.longitude),
+        //       zoom: 16.0,
+        //       ),
+        //       onCameraMove: onCameraMove,
+        //       compassEnabled: true,
+        //       myLocationEnabled: true,
+        //       markers: Set<Marker>.of(markers.values),
+        //       ),
+        // ),
+        //  Align(
+        //    alignment:Alignment.bottomCenter,
+        //    child: FlatButton(
+        //      onPressed: () => UserServices().userLocationStore(),
+        //      child: Text("Proceed"))
+        //  )
+        Center(
+          child: Container(
+            child: RaisedButton(
+              onPressed: () {
+                UserServices().signOut();
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/SignIn', (Route<dynamic> route) => false);
+              },
+              color: Colors.yellow,
+              child: Text("SignOut"),
             ),
-          ): GoogleMap(
-            onMapCreated: onCreated,
-            initialCameraPosition: CameraPosition(
-              target: LatLng(positions.latitude, positions.longitude),
-              zoom: 16.0,
-              ),
-              onCameraMove: onCameraMove,
-              compassEnabled: true,
-              myLocationEnabled: true,
-              markers: Set<Marker>.of(markers.values),
-              ),
-        ),
-         Align(
-           alignment:Alignment.bottomCenter,
-           child: FlatButton(
-             onPressed: () => UserServices().userLocationStore(), 
-             child: Text("Proceed"))
-         )
+          ),
+        )
       ],
     );
   }
