@@ -43,8 +43,8 @@ class _RegistrationState extends State<Registration> {
     var imageUrl = await storageTaskSnapshot.ref.getDownloadURL();
 
     setState(() {
-      global.laborImage = imageUrl.toString();
       this.laborImageUrl = imageUrl.toString();
+      global.laborImage = imageUrl.toString();
     });
     //UserServices().addProfileImage(userImageUrl);
     // //userImageUrl = await (await task.onComplete).ref.getDownloadURL();
@@ -66,6 +66,7 @@ class _RegistrationState extends State<Registration> {
         global.laborPhoneNumber = phoneNumber;
         global.laborAge = age;
         global.labortype = laborCategory;
+        sharedUserData.setString("laborType", laborCategory);
       });
     } else {
       return "Please fill the Form Correctly";

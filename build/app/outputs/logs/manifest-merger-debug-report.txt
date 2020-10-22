@@ -20,6 +20,7 @@ MERGED from [:shared_preferences] /Users/zeeshan_saleem/Flutter_Projects/Labor/b
 MERGED from [:firebase_messaging] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-20:12
 MERGED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:location_permissions] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/location_permissions/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [:connectivity] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/484f4416f953b4ca863915cc5da57484/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/e4577aac3afa7ec004a3464e20f578bd/firebase-auth-19.2.0/AndroidManifest.xml:17:1-42:12
@@ -104,6 +105,8 @@ MERGED from [:firebase_messaging] /Users/zeeshan_saleem/Flutter_Projects/Labor/b
 MERGED from [:firebase_messaging] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-18:19
 MERGED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/484f4416f953b4ca863915cc5da57484/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/484f4416f953b4ca863915cc5da57484/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/e4577aac3afa7ec004a3464e20f578bd/firebase-auth-19.2.0/AndroidManifest.xml:23:5-40:19
@@ -240,6 +243,8 @@ MERGED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/
 MERGED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:location_permissions] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/location_permissions/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:location_permissions] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/location_permissions/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:connectivity] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:connectivity] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/484f4416f953b4ca863915cc5da57484/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:7:5-9:41
@@ -430,6 +435,14 @@ ADDED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/f
 		ADDED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-123
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [:connectivity] /Users/zeeshan_saleem/Flutter_Projects/Labor/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-79
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /Users/zeeshan_saleem/.gradle/caches/transforms-2/files-2.1/484f4416f953b4ca863915cc5da57484/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:13:5-79

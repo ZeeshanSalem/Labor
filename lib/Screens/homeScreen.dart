@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:labors/Screens/clientRequest.dart';
 import 'package:labors/Screens/home.dart';
+import 'package:labors/Screens/sideMenu.dart';
 import 'package:labors/Shared_Widget/header_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: header(context, isAppTitle: true, disappearedBackButton: true),
+      appBar: header(context, isAppTitle: true, disappearedBackButton: false),
+      drawer: SideMenu(),
       body: PageView(
         controller: _pageController,
         children: _screens,
@@ -37,13 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CupertinoTabBar(onTap: _onItemTapped, items: [
         BottomNavigationBarItem(
             icon: Icon(
-              Icons.map,
+              Icons.remove_from_queue,
               color: _selectedIndex == 0
                   ? Colors.blue
                   : Theme.of(context).primaryColor,
             ),
             title: Text(
-              "Map",
+              "Client Request",
               style: TextStyle(
                 color: _selectedIndex == 0
                     ? Colors.blue
@@ -58,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   : Theme.of(context).primaryColor,
             ),
             title: Text(
-              "Client Requests",
+              "Accepted Requests",
               style: TextStyle(
                 color: _selectedIndex == 1
                     ? Colors.blue
